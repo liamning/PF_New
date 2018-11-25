@@ -1,0 +1,4 @@
+[2018-11-15 21:39:47] [Error]: Object reference not set to an instance of an object.
+   at AttendanceImport.Import_Zara(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 118
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 27
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52

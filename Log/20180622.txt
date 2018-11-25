@@ -1,0 +1,5 @@
+[2018-06-22 20:09:34] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileDownloadHandler.ashx:line 50

@@ -1,0 +1,20 @@
+[2018-03-19 04:43:53] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 50
+[2018-03-19 04:44:16] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 50
+[2018-03-19 04:46:00] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 50
+[2018-03-19 04:46:01] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 50

@@ -1,0 +1,5 @@
+[2018-04-14 02:20:58] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in f:\Webpack_Angularjs\my-app\dist\HttpHandler\FileDownloadHandler.ashx:line 50

@@ -1,0 +1,10 @@
+[2018-03-22 12:55:45] [Error]: Wrong Local header signature: 0xE011CFD0
+   at ICSharpCode.SharpZipLib.Zip.ZipInputStream.GetNextEntry()
+   at NPOI.OpenXml4Net.Util.ZipInputStreamZipEntrySource..ctor(ZipInputStream inp)
+   at NPOI.OpenXml4Net.OPC.ZipPackage..ctor(Stream filestream, PackageAccess access)
+   at NPOI.OpenXml4Net.OPC.OPCPackage.Open(Stream in1)
+   at NPOI.Util.PackageHelper.Open(Stream is1)
+   at NPOI.XSSF.UserModel.XSSFWorkbook..ctor(Stream is1)
+   at AttendanceImport.Import_Zara(Stream file, String clientCode) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 39
+   at AttendanceImport.Import(Stream file, String clientCode) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 27
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 51

@@ -1,0 +1,3 @@
+[2018-08-11 10:37:41] [Error]: Object reference not set to an instance of an object.
+[2018-08-11 10:37:41] [Error]:    at Worker.Save(WorkerInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Worker.cs:line 79
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 120

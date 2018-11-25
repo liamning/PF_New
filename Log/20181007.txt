@@ -1,0 +1,25 @@
+[2018-10-07 11:24:34] [Error]: The call is ambiguous between the following methods or properties: 'NPOI.SS.UserModel.ICell.SetCellValue(NPOI.SS.UserModel.IRichTextString)' and 'NPOI.SS.UserModel.ICell.SetCellValue(string)'
+   at CallSite.Target(Closure , CallSite , ICell , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   at Inquiry.Export_Search(JArray criterias, String[] fields, String view) in c:\Users\Administrator\documents\project\pf\web\App_Code\Inquiry.cs:line 179
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileDownloadHandler.ashx:line 44
+[2018-10-07 11:24:54] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileDownloadHandler.ashx:line 50
+[2018-10-07 19:37:50] [Error]: String was not recognized as a valid DateTime.
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at AttendanceImport.Import_Zara(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 75
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 27
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52
+[2018-10-07 19:38:49] [Error]: String was not recognized as a valid DateTime.
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at AttendanceImport.Import_Zara(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 75
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 27
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52
+[2018-10-07 19:39:22] [Error]: String was not recognized as a valid DateTime.
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at AttendanceImport.Import_Zara(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 75
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 27
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52

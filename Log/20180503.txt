@@ -1,0 +1,12 @@
+[2018-05-03 06:19:18] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 50
+[2018-05-03 13:35:35] [Error]: Object reference not set to an instance of an object.
+[2018-05-03 13:35:35] [Error]:    at BatchHandler.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\BatchHandler.ashx:line 201
+[2018-05-03 16:05:41] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 50

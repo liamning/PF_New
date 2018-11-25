@@ -1,0 +1,53 @@
+[2018-10-14 12:14:13] [Error]: The best overloaded method match for 'System.DateTime.DateTime(long, System.DateTimeKind, bool)' has some invalid arguments
+[2018-10-14 12:14:13] [Error]:    at CallSite.Target(Closure , CallSite , Type , Object , Object , Int32 )
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 179
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 222
+[2018-10-14 12:16:51] [Error]: The best overloaded method match for 'System.DateTime.DateTime(long, System.DateTimeKind, bool)' has some invalid arguments
+[2018-10-14 12:16:51] [Error]:    at CallSite.Target(Closure , CallSite , Type , Object , Object , Int32 )
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 179
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 222
+[2018-10-14 12:18:45] [Error]: String was not recognized as a valid DateTime.
+[2018-10-14 12:18:45] [Error]:    at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at AttendanceImport.Save(List`1 attendanceEntries, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 403
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 277
+[2018-10-14 12:37:20] [Error]: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+[2018-10-14 12:37:20] [Error]:    at System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader)
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command)
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Payroll.Insert(PayrollInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 408
+   at Payroll.SaveHelper(PayrollInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 297
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 186
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 222
+[2018-10-14 12:38:16] [Error]: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+[2018-10-14 12:38:16] [Error]:    at System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader)
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command)
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Payroll.Insert(PayrollInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 408
+   at Payroll.SaveHelper(PayrollInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 297
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 186
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 222
+[2018-10-14 12:39:34] [Error]: The given key was not present in the dictionary.
+[2018-10-14 12:39:34] [Error]:    at System.ThrowHelper.ThrowKeyNotFoundException()
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 114
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 222
+[2018-10-14 12:39:59] [Error]: The given key was not present in the dictionary.
+[2018-10-14 12:39:59] [Error]:    at System.ThrowHelper.ThrowKeyNotFoundException()
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 114
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 222
+[2018-10-14 12:41:05] [Error]: Cannot implicitly convert type 'double' to 'float'. An explicit conversion exists (are you missing a cast?)
+[2018-10-14 12:41:05] [Error]:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 114
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 222

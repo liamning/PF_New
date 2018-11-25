@@ -1,0 +1,92 @@
+[2018-05-05 01:58:41] [Error]: Object reference not set to an instance of an object.
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 136
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 52
+[2018-05-05 02:01:09] [Error]: Object reference not set to an instance of an object.
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 136
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 52
+[2018-05-05 02:03:41] [Error]: Object reference not set to an instance of an object.
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 136
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 52
+[2018-05-05 02:08:15] [Error]: Object reference not set to an instance of an object.
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 136
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 52
+[2018-05-05 02:32:37] [Error]: ExecuteReader requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Attendance.GetAttendanceList(String clientCode, Int32 BU, String workerID, DateTime targetDate) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 198
+   at Attendance.BatchUpdateRate(List`1 list) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 468
+   at Attendance.BatchInsert(List`1 list) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 318
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 217
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 52
+[2018-05-05 02:34:14] [Error]: ExecuteReader requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Attendance.GetAttendanceList(String clientCode, Int32 BU, String workerID, DateTime targetDate) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 198
+   at Attendance.BatchUpdateRate(List`1 list) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 468
+   at Attendance.BatchInsert(List`1 list) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 318
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 217
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 52
+[2018-05-05 02:34:44] [Error]: ExecuteReader requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Attendance.GetAttendanceList(String clientCode, Int32 BU, String workerID, DateTime targetDate) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 198
+   at Attendance.BatchUpdateRate(List`1 list) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 468
+   at Attendance.BatchInsert(List`1 list) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 318
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 217
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 52
+[2018-05-05 02:44:41] [Error]: ExecuteReader requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Attendance.GetAttendanceList(String clientCode, Int32 BU, String workerID, DateTime targetDate) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 198
+   at Attendance.BatchUpdateRate(List`1 list) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 468
+   at Attendance.BatchInsert(List`1 list) in c:\inetpub\wwwroot\App_Code\Attendance.cs:line 318
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\inetpub\wwwroot\App_Code\AttendanceImport.cs:line 217
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileUpload.ashx:line 52
+[2018-05-05 03:19:24] [Error]: No payroll item can be generated
+[2018-05-05 03:19:24] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\inetpub\wwwroot\App_Code\Payroll.cs:line 149
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\BatchHandler.ashx:line 222
+[2018-05-05 04:10:00] [Error]: Object reference not set to an instance of an object.
+[2018-05-05 04:10:00] [Error]:    at BatchHandler.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\BatchHandler.ashx:line 219
+[2018-05-05 04:18:07] [Error]: The call is ambiguous between the following methods or properties: 'NPOI.SS.UserModel.ICell.SetCellValue(NPOI.SS.UserModel.IRichTextString)' and 'NPOI.SS.UserModel.ICell.SetCellValue(string)'
+   at CallSite.Target(Closure , CallSite , ICell , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   at Inquiry.Export_Search(JArray criterias, String[] fields, String view) in c:\inetpub\wwwroot\App_Code\Inquiry.cs:line 179
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 44
+[2018-05-05 05:07:27] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 50
+[2018-05-05 05:17:08] [Error]: Object reference not set to an instance of an object.
+[2018-05-05 05:17:08] [Error]:    at WorkerClientList.Insert(List`1 list) in c:\inetpub\wwwroot\App_Code\WorkerClientList.cs:line 106
+   at WorkerClientList.Save(List`1 list, String workerID) in c:\inetpub\wwwroot\App_Code\WorkerClientList.cs:line 49
+   at Worker.Save(WorkerInfo info) in c:\inetpub\wwwroot\App_Code\Worker.cs:line 79
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\BatchHandler.ashx:line 120

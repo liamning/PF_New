@@ -1,0 +1,2 @@
+[2018-07-15 12:16:02] [Error]: Object reference not set to an instance of an object.
+[2018-07-15 12:16:02] [Error]:    at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 282

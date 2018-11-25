@@ -1,0 +1,20 @@
+[2018-04-08 16:40:30] [Error]: Object reference not set to an instance of an object.
+[2018-04-08 16:40:30] [Error]:    at UserProfile..ctor()
+   at LoginHandler.ProcessRequest(HttpContext context)
+[2018-04-08 16:40:33] [Error]: Object reference not set to an instance of an object.
+[2018-04-08 16:40:33] [Error]:    at UserProfile..ctor()
+   at LoginHandler.ProcessRequest(HttpContext context)
+[2018-04-08 16:40:39] [Error]: Object reference not set to an instance of an object.
+[2018-04-08 16:40:39] [Error]:    at UserProfile..ctor()
+   at LoginHandler.ProcessRequest(HttpContext context)
+[2018-04-08 16:40:41] [Error]: Object reference not set to an instance of an object.
+[2018-04-08 16:40:41] [Error]:    at UserProfile..ctor()
+   at LoginHandler.ProcessRequest(HttpContext context)
+[2018-04-08 16:40:43] [Error]: Object reference not set to an instance of an object.
+[2018-04-08 16:40:43] [Error]:    at UserProfile..ctor()
+   at LoginHandler.ProcessRequest(HttpContext context)
+[2018-04-08 17:13:39] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in f:\Webpack_Angularjs\my-app\dist\HttpHandler\FileDownloadHandler.ashx:line 50

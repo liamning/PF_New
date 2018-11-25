@@ -1,0 +1,8 @@
+[2018-05-01 16:50:34] [Error]: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at FileUpload.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\FileDownloadHandler.ashx:line 50
+[2018-05-01 16:53:44] [Error]: No payroll item can be generated
+[2018-05-01 16:53:44] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\inetpub\wwwroot\App_Code\Payroll.cs:line 149
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\inetpub\wwwroot\HttpHandler\BatchHandler.ashx:line 222

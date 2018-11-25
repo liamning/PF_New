@@ -1,0 +1,20 @@
+[2018-08-22 19:56:50] [Error]: Object reference not set to an instance of an object.
+[2018-08-22 19:56:50] [Error]:    at WorkerClientList.Insert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\WorkerClientList.cs:line 106
+   at WorkerClientList.Save(List`1 list, String workerID) in c:\Users\Administrator\documents\project\pf\web\App_Code\WorkerClientList.cs:line 49
+   at Worker.Save(WorkerInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Worker.cs:line 80
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 120
+[2018-08-22 19:56:58] [Error]: Object reference not set to an instance of an object.
+[2018-08-22 19:56:58] [Error]:    at WorkerClientList.Insert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\WorkerClientList.cs:line 106
+   at WorkerClientList.Save(List`1 list, String workerID) in c:\Users\Administrator\documents\project\pf\web\App_Code\WorkerClientList.cs:line 49
+   at Worker.Save(WorkerInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Worker.cs:line 80
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 120
+[2018-08-22 19:58:20] [Error]: Object reference not set to an instance of an object.
+[2018-08-22 19:58:20] [Error]:    at WorkerClientList.Insert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\WorkerClientList.cs:line 106
+   at WorkerClientList.Save(List`1 list, String workerID) in c:\Users\Administrator\documents\project\pf\web\App_Code\WorkerClientList.cs:line 49
+   at Worker.Save(WorkerInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Worker.cs:line 80
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 120
+[2018-08-22 19:58:48] [Error]: Object reference not set to an instance of an object.
+[2018-08-22 19:58:48] [Error]:    at WorkerClientList.Insert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\WorkerClientList.cs:line 106
+   at WorkerClientList.Save(List`1 list, String workerID) in c:\Users\Administrator\documents\project\pf\web\App_Code\WorkerClientList.cs:line 49
+   at Worker.Save(WorkerInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Worker.cs:line 80
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 120
