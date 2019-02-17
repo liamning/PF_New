@@ -56,9 +56,9 @@ order by WorkerID
         String query = @"
 
 select top 1 * from WorkerClientList
-where ClientCode =  @ClientCode
-and BU =  @BU
+where ClientCode =  @ClientCode 
 and StaffNo = @StaffNo
+and (@EffectiveFrom <= EffectiveTo and @EffectiveTo >= EffectiveFrom)
 and WorkerID != @WorkerID
 
 ";
@@ -67,7 +67,7 @@ and WorkerID != @WorkerID
         return obj.Count > 0 ? obj[0].WorkerID : "";
     }
 
-    public void Save(WorkerInfo info)
+    public string Save(WorkerInfo info)
     {
         this.db.Open();
         this.transaction = this.db.BeginTransaction();
@@ -80,14 +80,48 @@ and WorkerID != @WorkerID
 
             WorkerClientList clientListObj = new WorkerClientList(this.db, this.transaction);
             clientListObj.Save(info.ClientList, info.WorkerID);
-            WorkerSkill WorkerSkill = new WorkerSkill(this.db, this.transaction);
 
+            int rowno = 0;
+            WorkerSkill WorkerSkill = new WorkerSkill(this.db, this.transaction); 
             if (info.SkillList != null)
-            foreach (WorkerSkillInfo skill in info.SkillList)
-            {
-                skill.WorkerID = info.WorkerID;
-                WorkerSkill.Save(skill);
-            }
+                foreach (WorkerSkillInfo skill in info.SkillList)
+                {
+                    skill.WorkerID = info.WorkerID;
+                    skill.RowNo = ++rowno;
+                    WorkerSkill.Save(skill);
+
+                }
+            WorkerSkill.Delete(info.WorkerID, ++rowno);
+
+
+            WorkerAdjustment WorkerAdjustment = new WorkerAdjustment(this.db, this.transaction);
+            rowno = 0;
+            if (info.AdjustmentList != null)
+                foreach (WorkerAdjustmentInfo adjust in info.AdjustmentList)
+                {
+                    adjust.WorkerID = info.WorkerID;
+                    adjust.RowNo = ++rowno;
+                    WorkerAdjustment.Save(adjust);
+
+                }
+            WorkerAdjustment.Delete(info.WorkerID, ++rowno);
+
+
+
+            WorkerAttachment WorkerAttachment = new WorkerAttachment(this.db, this.transaction);
+            rowno = 0;
+            List<int> existingRowNo = new List<int>();
+            if (info.AttachmentList != null)
+                foreach (WorkerAttachmentInfo adjust in info.AttachmentList)
+                {
+                    existingRowNo.Add(adjust.RowNo);
+
+                    adjust.WorkerID = info.WorkerID; 
+                    WorkerAttachment.Save(adjust);
+
+                }
+            WorkerAttachment.Delete(info.WorkerID, existingRowNo);
+
 
             this.transaction.Commit();
         }
@@ -101,6 +135,8 @@ and WorkerID != @WorkerID
             this.db.Close();
         }
 
+        return info.WorkerID;
+
     }
 
     public WorkerInfo Get(string WorkerID)
@@ -108,6 +144,8 @@ and WorkerID != @WorkerID
         db.Open();
         WorkerClientList clientListObj = new WorkerClientList();
         WorkerSkill WorkerSkill = new WorkerSkill();
+        WorkerAdjustment WorkerAdjustment = new WorkerAdjustment();
+        WorkerAttachment WorkerAttachment = new WorkerAttachment();
 
         string query = "select * from Worker "
         + " where WorkerID = @WorkerID ";
@@ -121,6 +159,8 @@ and WorkerID != @WorkerID
                 info = obj[0];
                 info.ClientList = clientListObj.Get(WorkerID);
                 info.SkillList = WorkerSkill.GetSkillList(WorkerID);
+                info.AdjustmentList = WorkerAdjustment.GetList(WorkerID);
+                info.AttachmentList = WorkerAttachment.GetList(WorkerID);
                 return info;
             }
             else
@@ -228,9 +268,10 @@ where ClientCode = @ClientCode and BU=@BU and WorkerID =  @WorkerID )";
         + ", [AppraisalGrade] = @AppraisalGrade "
         + ", [PayrollMethod] = @PayrollMethod "
         + ", [CardStatus] = @CardStatus "
+        + ", [ReturnDate] = @ReturnDate "
 
-        + ", [CreateUser] = @CreateUser "
-        + ", [CreateDate] = @CreateDate "
+        //+ ", [CreateUser] = @CreateUser "
+            //+ ", [CreateDate] = @CreateDate "
         + ", [LastModifyUser] = @LastModifyUser "
         + ", [LastModifyDate] = @LastModifyDate "
         + " where WorkerID = @WorkerID ";
@@ -242,7 +283,15 @@ where ClientCode = @ClientCode and BU=@BU and WorkerID =  @WorkerID )";
 
     public void Insert(WorkerInfo info)
     {
-        //db.Open();
+        //db.Open(); 
+        var MaxWorkerList = this.db.Query("select max(WorkerID) MaxWorkerID from Worker", null, this.transaction);
+
+
+        foreach (var id in MaxWorkerList)
+        {
+            info.WorkerID = (Convert.ToInt32(id.MaxWorkerID) + 1).ToString();
+        }
+         
 
         string query = "INSERT INTO [dbo].[Worker] ( [WorkerID] "
         + ",[ChineseName] "
@@ -274,11 +323,12 @@ where ClientCode = @ClientCode and BU=@BU and WorkerID =  @WorkerID )";
         + ",[AppraisalGrade] "
         + ",[PayrollMethod] "
         + ",[CardStatus] "
+        + ",[ReturnDate] "
 
         + ",[CreateUser] "
         + ",[CreateDate] "
-        + ",[LastModifyUser] "
-        + ",[LastModifyDate] "
+            //+ ",[LastModifyUser] "
+            //+ ",[LastModifyDate] "
         + ") "
         + "VALUES ( @WorkerID "
         + ",@ChineseName "
@@ -310,12 +360,13 @@ where ClientCode = @ClientCode and BU=@BU and WorkerID =  @WorkerID )";
         + ",@AppraisalGrade "
         + ",@PayrollMethod "
         + ",@CardStatus "
+        + ",@ReturnDate "
 
 
         + ",@CreateUser "
         + ",@CreateDate "
-        + ",@LastModifyUser "
-        + ",@LastModifyDate "
+            //+ ",@LastModifyUser "
+            //+ ",@LastModifyDate "
         + ") ";
 
 

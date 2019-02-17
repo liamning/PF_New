@@ -23,7 +23,11 @@ public class Payroll
         return obj;
     }
 
-    public PayrollInfo Generate(string PayrollGroup, DateTime asat, DateTime salaryDate, string remarks)
+    public PayrollInfo Generate(string PayrollGroup, DateTime asat, DateTime salaryDate,
+        int bonusDayCount,
+        int totalBonusHours,
+        decimal bonusAmount,
+        string remarks)
     {
         this.db.Open();
 
@@ -44,6 +48,7 @@ Join Worker on Attendance.WorkerID = Worker.WorkerID
 where PayrollGroup = @PayrollGroup
 and AttendanceDate <= @AsAt
 and IsPaid is null
+
 group by Client, BU,  Worker.WorkerID
 ) attendance
 join ClientBU on attendance.Client = ClientBU.ClientCode and attendance.BU = ClientBU.RowNo 
@@ -66,27 +71,16 @@ join ClientBU on attendance.Client = ClientBU.ClientCode and attendance.BU = Cli
         //If over 200 hours per month, ÇÚ¹¤ª„$500
         query = @"
 
---select * from (
-select WorkerID,  sum(Hours + OTHours) TotalHours from Attendance
-where 
+select Attendance.WorkerID,  sum(Hours + OTHours) TotalHours 
+from Attendance
+Join Worker on Attendance.WorkerID = Worker.WorkerID
+where PayrollGroup = @PayrollGroup
+and DATEDIFF(DAY, AttendanceDate, @AsAt) <= @BonusDayCount
+group by Attendance.WorkerID 
 
----not exists (select 1 from PayrollBonus 
----where Attendance.WorkerID = PayrollBonus.WorkerID
----and AttendanceDate <= [MONTH]
----and [Type] in (0,1)
----)
-
-DATEDIFF(DAY, AttendanceDate, @AsAt) <= 30
-
-and Attendance.WorkerID in @WorkerIDList
-group by WorkerID 
---) tmp
---where TotalHours > 200
 
 ";
-        var bonusList = this.db.Query(query, new { WorkerIDList = workerIDList, AsAt = asat.Date });
-
-        this.db.Close();
+        var bonusList = this.db.Query(query, new { PayrollGroup = PayrollGroup, AsAt = asat, BonusDayCount = bonusDayCount }); 
 
 
         Dictionary<string, dynamic> bonusIDList = new Dictionary<string, dynamic>();
@@ -109,9 +103,18 @@ group by WorkerID
                 payRollInfo.SalaryDate = salaryDate;
                 payRollInfo.Remarks = remarks;
 
+
+                payRollInfo.BonusDayCount = bonusDayCount;
+                payRollInfo.TotalBonusHours = totalBonusHours;
+                payRollInfo.BonusAmount = bonusAmount;
+
                 //new added fields
                 payRollInfo.Asat = asat;
-                payRollInfo.Last30DayTotal = (float)bonusIDList[payRollInfo.WorkerID].TotalHours;
+
+                if (bonusIDList.ContainsKey(payRollInfo.WorkerID))
+                    payRollInfo.Last30DayTotal = (float)bonusIDList[payRollInfo.WorkerID].TotalHours;
+                else
+                    payRollInfo.Last30DayTotal = 0;
 
 
                 payRollInfo.PayrollItemList = new List<PayrollItemInfo>();
@@ -125,7 +128,7 @@ group by WorkerID
             }
 
             tmpItem = new PayrollItemInfo();
-            tmpItem.ItemCode = "Salary";
+            tmpItem.ItemCode = PayrollItemInfo.Type.Salary;
             tmpItem.Description = attn.Desc;
             tmpItem.Amount = attn.Amount;
             tmpItem.RowNo = ++rowNo;
@@ -138,24 +141,47 @@ group by WorkerID
 
             payRollInfo.PayrollItemList.Add(tmpItem);
         }
-         
 
+
+        query = @"
+select * from WorkerAdjustment where UpdateDate is null and WorkerID = @WorkerID 
+";
+       
+        List<WorkerAdjustmentInfo> adjustmentList;
         foreach (var info in payrollList)
         {
-            if (info.Last30DayTotal > 200)
+            if (info.Last30DayTotal > totalBonusHours)
             {
                 tmpItem = new PayrollItemInfo();
-                tmpItem.ItemCode = "Bonus";
+                tmpItem.ItemCode = PayrollItemInfo.Type.Bonus;
                 //tmpItem.Description = string.Format("{0} in {1}/{2}", "Over 200 hours", bonusIDList[info.WorkerID].AttnMonth, bonusIDList[info.WorkerID].AttnYear) ;
-                tmpItem.Description = string.Format("{0} as at {1}", "Over 200 hours", asat);
-                tmpItem.Amount = 500;
+                tmpItem.Description = string.Format("Over {0} hours {1} days before {2:dd MMM yyyy}", totalBonusHours, bonusDayCount, asat);
+                tmpItem.Amount = bonusAmount;
                 tmpItem.RowNo = info.PayrollItemList.Count + 1;
 
                 info.PayrollItemList.Add(tmpItem);
                 info.Amount += tmpItem.Amount;
 
             }
+
+            adjustmentList = (List<WorkerAdjustmentInfo>)this.db.Query<WorkerAdjustmentInfo>(query, new { WorkerID = info.WorkerID });
+
+            foreach (var adjustment in adjustmentList)
+            {
+                tmpItem = new PayrollItemInfo();
+                tmpItem.ItemCode = PayrollItemInfo.Type.Adjustment;
+                tmpItem.Description = PayrollItemInfo.Type.Adjustment;
+                tmpItem.Amount = adjustment.AdjustAmount;
+                tmpItem.RowNo = info.PayrollItemList.Count + 1;
+
+                info.PayrollItemList.Add(tmpItem);
+                info.Amount += tmpItem.Amount;
+
+                this.db.Execute(query, new { WorkerID = info.WorkerID });
+            }
         }
+
+        this.db.Close();
 
 
 
@@ -372,9 +398,12 @@ and AttendanceDate <= @AsAt
         + ", [Hours] = @Hours "
         + ", [OTHours] = @OTHours "
         + ", [Last30DayTotal] = @Last30DayTotal "
-        + ", [Asat] = @Asat " 
-		+ ", [Amount] = @Amount " 
-		+ ", [Remarks] = @Remarks " 
+        + ", [Asat] = @Asat "
+        + ", [Amount] = @Amount "
+        + ", [Remarks] = @Remarks "
+        + ", [BonusDayCount] = @BonusDayCount "
+        + ", [TotalBonusHours] = @TotalBonusHours "
+        + ", [BonusAmount] = @BonusAmount " 
 		+ " where WorkerID = @WorkerID and SalaryDate = @SalaryDate ";
 
          
@@ -392,10 +421,13 @@ and AttendanceDate <= @AsAt
         + ",[PayTo] "
         + ",[Hours] "
         + ",[Last30DayTotal] "
-        + ",[Asat] " 
-		+ ",[OTHours] " 
-		+ ",[Amount] " 
-		+ ",[Remarks] " 
+        + ",[Asat] "
+        + ",[OTHours] "
+        + ",[Amount] "
+        + ",[Remarks] "
+        + ",[BonusDayCount] "
+        + ",[TotalBonusHours] "
+        + ",[BonusAmount] " 
 		+") "
 		+ "VALUES ( @WorkerID "
 		+ ",@SalaryDate " 
@@ -403,10 +435,13 @@ and AttendanceDate <= @AsAt
 		+ ",@PayTo "
         + ",@Hours "
         + ",@Last30DayTotal "
-        + ",@Asat " 
-		+ ",@OTHours " 
-		+ ",@Amount " 
-		+ ",@Remarks " 
+        + ",@Asat "
+        + ",@OTHours "
+        + ",@Amount "
+        + ",@Remarks "
+        + ",@BonusDayCount "
+        + ",@TotalBonusHours "
+        + ",@BonusAmount " 
 		+") ";
 
 

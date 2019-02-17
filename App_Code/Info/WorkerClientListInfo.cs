@@ -5,6 +5,8 @@ public class WorkerClientListInfo
     public string ClientCode { get; set; }
     public string BU { get; set; }
     public string StaffNo { get; set; }
+    public DateTime? EffectiveFrom{ get; set; }
+    public DateTime? EffectiveTo { get; set; }
 	public class FieldName
 	{
 		public const string WorkerID = "WorkerID";

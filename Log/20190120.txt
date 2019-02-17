@@ -1,0 +1,42 @@
+[2019-01-20 20:16:13] [Error]: Object reference not set to an instance of an object.
+   at Attendance.BatchUpdateRate(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 430
+   at Attendance.BatchInsert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 336
+   at AttendanceImport.Import_Nike(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 343
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 29
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52
+[2019-01-20 20:16:22] [Error]: Object reference not set to an instance of an object.
+   at Attendance.BatchUpdateRate(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 430
+   at Attendance.BatchInsert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 336
+   at AttendanceImport.Import_Nike(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 343
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 29
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52
+[2019-01-20 20:17:17] [Error]: Object reference not set to an instance of an object.
+   at Attendance.BatchUpdateRate(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 430
+   at Attendance.BatchInsert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 336
+   at AttendanceImport.Import_Nike(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 343
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 29
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52
+[2019-01-20 20:49:31] [Error]: Object reference not set to an instance of an object.
+   at Attendance.BatchUpdateRate(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 430
+   at Attendance.BatchInsert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 336
+   at AttendanceImport.Import_Nike(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 343
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 29
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52
+[2019-01-20 22:19:07] [Error]: Object reference not set to an instance of an object.
+   at Attendance.BatchUpdateRate(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 430
+   at Attendance.BatchInsert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 336
+   at AttendanceImport.Import_Nike(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 343
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 29
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52
+[2019-01-20 22:21:02] [Error]: Object reference not set to an instance of an object.
+   at Attendance.BatchUpdateRate(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 430
+   at Attendance.BatchInsert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 336
+   at AttendanceImport.Import_Nike(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 343
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 29
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52
+[2019-01-20 22:25:59] [Error]: Object reference not set to an instance of an object.
+   at Attendance.BatchUpdateRate(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 430
+   at Attendance.BatchInsert(List`1 list) in c:\Users\Administrator\documents\project\pf\web\App_Code\Attendance.cs:line 336
+   at AttendanceImport.Import_Nike(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 343
+   at AttendanceImport.Import(Stream file, String clientCode, Int32 BU) in c:\Users\Administrator\documents\project\pf\web\App_Code\AttendanceImport.cs:line 29
+   at FileUpload.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\FileUpload.ashx:line 52

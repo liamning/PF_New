@@ -46,7 +46,7 @@ public class BatchHandler : IHttpHandler, IRequiresSessionState
                         var WorkerClientListInfo = Newtonsoft.Json.JsonConvert.DeserializeObject<WorkerClientListInfo>(WorkerClientListInfoStr, IsoDateTimeConverter);
                         string workerID = new Worker().IsStaffNoDuplicated(WorkerClientListInfo);
                         if (!string.IsNullOrEmpty(workerID))
-                            result = "{\"message\":\"Staff No.  " + WorkerClientListInfo.StaffNo + " already existed in worker " + workerID + "\"}";
+                            result = "{\"message\":\"Staff No.  " + WorkerClientListInfo.StaffNo + " overlaps with worker " + workerID + "\"}";
                         break;
                     case "getSample":
                         string SampleNo = request["SampleNo"];
@@ -124,8 +124,11 @@ public class BatchHandler : IHttpHandler, IRequiresSessionState
                         string WorkerInfoString = dataDict["WorkerInfo"].ToString();
                         var WorkerInfo = Newtonsoft.Json.JsonConvert.DeserializeObject<WorkerInfo>(WorkerInfoString, IsoDateTimeConverter);
                         WorkerInfo.CreateUser = userID;
+                        WorkerInfo.CreateDate = DateTime.Now;
+                        WorkerInfo.LastModifyUser = userID;
+                        WorkerInfo.LastModifyDate = DateTime.Now;
                         new Worker().Save(WorkerInfo);
-                        result = "{\"message\":\"Done.\"}";
+                        result = "{\"message\":\"Done.\",\"WorkerID\":\"" + WorkerInfo.WorkerID + "\"}";
                         break;
                     case "deleteWorker":
                         WorkerID = dataDict["WorkerID"].ToString();
@@ -226,7 +229,10 @@ public class BatchHandler : IHttpHandler, IRequiresSessionState
                         DateTime asat = DateTime.ParseExact(dataDict["AsAt"].ToString(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                         DateTime SalaryDate = DateTime.ParseExact(dataDict["SalaryDate"].ToString(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                         string remarks = dataDict["Remarks"].ToString();
-                        new Payroll().Generate(PayrollGroup, asat, SalaryDate, remarks);
+                        int bonusDayCount = Convert.ToInt32(dataDict["BonusDayCount"]);
+                        int totalBonusHours = Convert.ToInt32(dataDict["TotalBonusHours"]);
+                        decimal BonusAmount = Convert.ToDecimal(dataDict["BonusAmount"]);
+                        new Payroll().Generate(PayrollGroup, asat, SalaryDate, bonusDayCount, totalBonusHours, BonusAmount, remarks);
                         result = "{\"message\":\"Done.\"}";
                         break;
 
@@ -284,13 +290,14 @@ public class BatchHandler : IHttpHandler, IRequiresSessionState
                         new AttendanceImport().Save(AttendanceList, clientCode, BU);
                         result = "{\"message\":\"Done.\"}";
                         break;
-                            
+
                     case "beneficialNameExists":
                         WorkerID = dataDict["WorkerID"].ToString();
-                        var beneficialName  = dataDict["BeneficialName"].ToString();
+                        var beneficialName = dataDict["BeneficialName"].ToString();
                         var trueFalse = new Worker().BeneficialNameExists(beneficialName, WorkerID);
-                        result = "{\"result\": \""+trueFalse+"\"}";
+                        result = "{\"result\": \"" + trueFalse + "\"}";
                         break;
+
 
 
                     default:

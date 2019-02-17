@@ -1,0 +1,114 @@
+[2019-02-03 21:56:06] [Error]: Object reference not set to an instance of an object.
+[2019-02-03 21:56:06] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 133
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 21:56:30] [Error]: Object reference not set to an instance of an object.
+[2019-02-03 21:56:30] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 133
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 21:56:36] [Error]: Value cannot be null.
+Parameter name: s
+[2019-02-03 21:56:36] [Error]:    at System.IO.StringReader..ctor(String s)
+   at Newtonsoft.Json.Linq.JArray.Parse(String json, JsonLoadSettings settings)
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 38
+[2019-02-03 21:57:21] [Error]: Object reference not set to an instance of an object.
+[2019-02-03 21:57:21] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 133
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 21:59:12] [Error]: Object reference not set to an instance of an object.
+[2019-02-03 21:59:12] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 133
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:00:01] [Error]: Object reference not set to an instance of an object.
+[2019-02-03 22:00:01] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 133
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:00:28] [Error]: The given key was not present in the dictionary.
+[2019-02-03 22:00:28] [Error]:    at System.ThrowHelper.ThrowKeyNotFoundException()
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 114
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:05:48] [Error]: The given key was not present in the dictionary.
+[2019-02-03 22:05:48] [Error]:    at System.ThrowHelper.ThrowKeyNotFoundException()
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 114
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:06:45] [Error]: The given key was not present in the dictionary.
+[2019-02-03 22:06:45] [Error]:    at System.ThrowHelper.ThrowKeyNotFoundException()
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 114
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:14:58] [Error]: Incorrect syntax near 'DATEDIFF'.
+[2019-02-03 22:14:58] [Error]:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Dapper.SqlMapper.Query(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 79
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:15:30] [Error]: Ambiguous column name 'WorkerID'.
+Ambiguous column name 'WorkerID'.
+[2019-02-03 22:15:30] [Error]:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Dapper.SqlMapper.Query(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 79
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:15:57] [Error]: Ambiguous column name 'WorkerID'.
+[2019-02-03 22:15:57] [Error]:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Dapper.SqlMapper.Query(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 79
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:16:32] [Error]: The given key was not present in the dictionary.
+[2019-02-03 22:16:32] [Error]:    at System.ThrowHelper.ThrowKeyNotFoundException()
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 106
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:18:21] [Error]: The given key was not present in the dictionary.
+[2019-02-03 22:18:21] [Error]:    at System.ThrowHelper.ThrowKeyNotFoundException()
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 106
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 232
+[2019-02-03 22:42:10] [Error]: Value cannot be null.
+Parameter name: s
+[2019-02-03 22:42:10] [Error]:    at System.IO.StringReader..ctor(String s)
+   at Newtonsoft.Json.Linq.JArray.Parse(String json, JsonLoadSettings settings)
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 38
+[2019-02-03 22:44:01] [Error]: No payroll item can be generated
+[2019-02-03 22:44:01] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, Int32 bonusDayCount, Int32 totalBonusHours, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 163
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 234
+[2019-02-03 22:51:53] [Error]: No payroll item can be generated
+[2019-02-03 22:51:53] [Error]:    at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, Int32 bonusDayCount, Int32 totalBonusHours, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 163
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 234

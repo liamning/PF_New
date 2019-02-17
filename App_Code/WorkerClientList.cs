@@ -79,8 +79,10 @@ public class WorkerClientList
         //db.Open();
 
         string query = " UPDATE [dbo].[WorkerClientList] SET  "
-		+ " [ClientCode] = @ClientCode " 
-		+ ", [StaffNo] = @StaffNo " 
+        + " [ClientCode] = @ClientCode "
+        + ", [StaffNo] = @StaffNo "
+        + ", [EffectiveFrom] = @EffectiveFrom "
+        + ", [EffectiveTo] = @EffectiveTo " 
 		+ " where WorkerID = @WorkerID ";
 
          
@@ -96,11 +98,15 @@ public class WorkerClientList
 		+ ",[ClientCode] "
         + ",[BU] "
         + ",[StaffNo] "
+        + ",[EffectiveFrom] "
+        + ",[EffectiveTo] "
         + ") "
 		+ "VALUES ( @WorkerID "
         + ",@ClientCode "
         + ",@BU "
-        + ",@StaffNo " 
+        + ",@StaffNo "
+        + ",@EffectiveFrom "
+        + ",@EffectiveTo " 
 		+") ";
 
         if (list!=null)

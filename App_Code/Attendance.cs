@@ -302,6 +302,14 @@ where ClientCode = @ClientCode and  BU = @BU and StaffNo = @StaffNo",
             string error;
             foreach (AttendanceInfo info in list)
             {
+                //check effective date
+                if (!this.CheckEffectiveDate(info.Client, info.WorkerID, info.ClientStaffNo, info.AttendanceDate.Value.Date))
+                { 
+                    info.Remarks = "Out of the effective date range";
+                    continue;
+                }
+
+
                 if (this.IsExisted(info))
                 {
                     error = this.Update(info);
@@ -341,6 +349,27 @@ where ClientCode = @ClientCode and  BU = @BU and StaffNo = @StaffNo",
         }
 
         return list;
+
+    }
+
+    public bool CheckEffectiveDate(string clientCode, string workerID, string staffNo, DateTime attendanceDate)
+    {
+        string sql = @"
+
+select count(*) total from WorkerClientList
+where WorkerID = @WorkerID
+and ClientCode = @ClientCode
+and StaffNo = @StaffNo
+and EffectiveFrom <= @attendanceDate
+and @attendanceDate <= EffectiveTo 
+";
+        var result = (List<dynamic>)this.db.Query<dynamic>(sql, new {
+            ClientCode = clientCode,
+            WorkerID = workerID,
+            StaffNo = staffNo,
+            AttendanceDate = attendanceDate
+        }, this.transaction);
+        return result[0].total > 0;
 
     }
 
@@ -391,9 +420,10 @@ order by AttendanceDate
         int dayofWeek;
         DateTime startDate;
         DateTime endDate;
-        AttendanceInfo sundayAttendance; 
+        //AttendanceInfo sundayAttendance; 
         double weekHours;
         List<string> intervalList = new HourlyRateMapping().GetIntervalList(list[0].Client, list[0].BU);
+        AttendanceInfo dbInfo;
         foreach (AttendanceInfo info in list)
         {
             if (info.TimeSlot == "3")
@@ -406,15 +436,20 @@ order by AttendanceDate
                     if (!attendanceKey.Contains(tmpKey))
                     {
                         weekHours = 0; 
-                        sundayAttendance = null;
+                        //sundayAttendance = null;
                         tmpList = this.GetNightShiftAttendanceList(info.Client, info.BU, info.WorkerID, startDate, startDate.AddDays(6));
                         attendanceKey.Add(tmpKey);
-                        foreach (var dbInfo in tmpList)
+                        foreach (var tmpAttn in tmpList)
                         {
-                            weekHours += (info.Hours + info.OTHours);
+                            weekHours += (tmpAttn.Hours + tmpAttn.OTHours);
                         }
-                        foreach (var dbInfo in tmpList)
+                        foreach (var tmpAttn in tmpList)
                         {
+                            if (tmpAttn.AttendanceDate.Value.Date.CompareTo(info.AttendanceDate.Value.Date) == 0)
+                                dbInfo = info;
+                            else
+                                dbInfo = tmpAttn;
+
                             dbInfo.WeeklyHours = weekHours;
                             dbInfo.WorkerID = info.WorkerID;
                             dbInfo.PositionGrade = info.PositionGrade;
@@ -423,13 +458,17 @@ order by AttendanceDate
 
                             if ((int)dbInfo.AttendanceDate.Value.DayOfWeek == 0)
                             {
-                                sundayAttendance = dbInfo;
+                                //sundayAttendance = dbInfo;
                             }
                             else if ((int)dbInfo.AttendanceDate.Value.DayOfWeek == 6)
                             {
-                                sundayAttendance.SatHours = info.Hours + info.OTHours;
+                                //sundayAttendance.SatHours = info.Hours + info.OTHours;
                             }
-                        } 
+                        }
+                    }
+                    else
+                    { 
+                        newAttendanceList.Add(info);
                     }
                 } else if (intervalList.Contains("M"))
                 { 
@@ -454,12 +493,13 @@ order by AttendanceDate
                         weekHours = 0; 
                         tmpList = this.GetNightShiftAttendanceList(info.Client, info.BU, info.WorkerID, startDate, endDate);
                         attendanceKey.Add(tmpKey);
-                        foreach (var dbInfo in tmpList)
+                        foreach (var tmpAttn in tmpList)
                         {
-                            weekHours += (info.Hours + info.OTHours);
+                            weekHours += (tmpAttn.Hours + tmpAttn.OTHours);
                         }
-                        foreach (var dbInfo in tmpList)
+                        foreach (var tmpAttn in tmpList)
                         {
+                            dbInfo = tmpAttn;
                             dbInfo.WeeklyHours = weekHours;
                             dbInfo.WorkerID = info.WorkerID;
                             dbInfo.PositionGrade = info.PositionGrade;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Web; 
+using System.Web;
 using System.Web.SessionState;
 using System.Security.Cryptography;
 using System.Text;
@@ -34,7 +34,7 @@ public class GlobalSetting
     }
 
     //public static readonly Dictionary<string, PolicyInfo> PolicyDict = new PolicyMaster().GetPolicyDict();
-   // public static readonly string TMSCOMDBPolicyValue = GlobalSetting.PolicyDict[GlobalSetting.PolicyKey.TMSCOMDB].PolicyValue;
+    // public static readonly string TMSCOMDBPolicyValue = GlobalSetting.PolicyDict[GlobalSetting.PolicyKey.TMSCOMDB].PolicyValue;
     //public static readonly string TMSWorkshopCompanyDBPolicyValue = GlobalSetting.PolicyDict[GlobalSetting.PolicyKey.TMSWorkshopCompanyDB].PolicyValue;
 
     public struct SessionKey
@@ -58,7 +58,7 @@ public class GlobalSetting
         public const string RosterTempate = "RT";
         public const string ShiftAdjustment = "AD";
     }
-     
+
     public static string GetHashPassword(string password)
     {
         int salt = 0;
@@ -67,6 +67,28 @@ public class GlobalSetting
         byte[] digest = md5.ComputeHash(Encoding.UTF8.GetBytes(password + salt));
         string base64digest = Convert.ToBase64String(digest, 0, digest.Length);
         return base64digest.Substring(0, base64digest.Length - 2);
-    } 
+    }
+
+    public static void SaveFile(string key, string content)
+    {
+        string diretory = HttpContext.Current.Server.MapPath("~/Attachment");
+        File.WriteAllText(diretory + "\\" + key, content);
+    }
+
+    public static bool DeleteFile(string key)
+    {
+        string diretory = HttpContext.Current.Server.MapPath("~/Attachment");
+        if (!File.Exists(diretory + "\\" + key)) return false;
+
+        File.Delete(diretory + "\\" + key);
+
+        return true;
+    }
+
+    public static string ReadFile(string key)
+    {
+        string diretory = HttpContext.Current.Server.MapPath("~/Attachment");
+        return File.ReadAllText(diretory + "\\" + key);
+    }
 
 }

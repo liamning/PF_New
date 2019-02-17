@@ -66,14 +66,14 @@ public class WorkerSkill
         return obj;
     }
 
-    public void Delete(string WorkerID)
+    public void Delete(string WorkerID, int RowNo)
     {
         //db.Open();
 
         string query = "delete  from WorkerSkill "
-        + " where WorkerID = @WorkerID ";
+        + " where WorkerID = @WorkerID and RowNo >= @RowNo";
 
-        db.Execute(query, new { WorkerID = WorkerID }, this.transaction);
+        db.Execute(query, new { WorkerID = WorkerID, RowNo = RowNo }, this.transaction);
         //db.Close();
     }
 

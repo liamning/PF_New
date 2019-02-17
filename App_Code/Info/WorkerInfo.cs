@@ -33,6 +33,7 @@ public class WorkerInfo
     public string AppraisalGrade { get; set; }
     public string PayrollMethod { get; set; }
     public string CardStatus { get; set; }
+    public DateTime? ReturnDate { get; set; }
 
 
     public string CreateUser { get; set; }
@@ -42,6 +43,8 @@ public class WorkerInfo
 
     public List<WorkerSkillInfo> SkillList { get; set; }
     public List<WorkerClientListInfo> ClientList { get; set; }
+    public List<WorkerAdjustmentInfo> AdjustmentList { get; set; }
+    public List<WorkerAttachmentInfo> AttachmentList { get; set; }
 
     public class FieldName
 	{

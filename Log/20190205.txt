@@ -1,0 +1,14 @@
+[2019-02-05 11:10:05] [Error]: Object reference not set to an instance of an object.
+[2019-02-05 11:10:05] [Error]:    at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 230
+[2019-02-05 11:54:31] [Error]: ExecuteNonQuery requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+[2019-02-05 11:54:31] [Error]:    at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader)
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command)
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at PayrollItem.UpdateAdjustmentDate(PayrollItemInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\PayrollItem.cs:line 61
+   at PayrollItem.Save(PayrollItemInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\PayrollItem.cs:line 51
+   at Payroll.SaveHelper(PayrollInfo info) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 336
+   at Payroll.Generate(String PayrollGroup, DateTime asat, DateTime salaryDate, Int32 bonusDayCount, Int32 totalBonusHours, Decimal bonusAmount, String remarks) in c:\Users\Administrator\documents\project\pf\web\App_Code\Payroll.cs:line 217
+   at BatchHandler.ProcessRequest(HttpContext context) in c:\Users\Administrator\documents\project\pf\web\HttpHandler\BatchHandler.ashx:line 235
